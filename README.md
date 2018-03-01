@@ -1,0 +1,4 @@
+# eclipse-inspection-in-intellij-idea
+从eclipse转到intellij,发现两者的校验规则相差挺多的，以前的代码在idea中有很多警告，也有一些在eclipse中有警告，但是在idea中是没有的。
+自己手动整理了一下两者的差异，在inspection_diff.txt里面，是eclipse校验规则和idea校验规则的对比。idea_eclipse.xml是idea的校验文件，
+包含了所有的eclipse的校验规则，并且去掉了其它没有在eclipse中的规则。
