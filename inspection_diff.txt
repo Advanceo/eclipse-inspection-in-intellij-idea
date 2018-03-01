@@ -1,0 +1,48 @@
+eclipse 															idea                                                        解释
+Non-static access to static member									Static member guarded by instance field or this             静态成员不允许通过对象实例访问
+Method with a constructor name 										Method name same as class name								非构造方法和类名相同	
+Comparing identical values('x==x')									Constant conditions & exceptions							对比相同的值，导致表达式一直为true
+Assignment has no effect											'this' reference escaped in object construction 			构造函数中的字段赋值缺少this
+																	
+																	
+Using a char array in string concatenation							Call to 'toString' on array									不能直接用+号连接数组
+inexact type match for vararg arguments								Confusing argument to varargs method						动态数组方法，参数类型不精确
+unlikely argument type for collection methods using 'Object'		Suspicious collections method calls							Collections的remove方法类型不一致时加入警告
+incomplete 'switch' cases on enum									Enum 'switch' statement that misses case 选中第一个框		switch中未使用的enum没有默认default分支					
+hidden catch brock													Overly broad 'catch' block 选中第二个框						当第一个catch为Exception,第二个为nullpointer,第二个会被忽略
+'finally' does not complete normally								'finally' block which can not complete normally				finally语句块未正常使用，如try中return 1,finally return 2，导致两个返回值，或者try中break,finally中continue
+dead code (e.g. 'if(false)') 										Constant conditions & exceptions							判断表达式的值为固定的，如 3==3是一直对的
+
+Resource leak														Channel opened but not safely closed						资源泄漏，没有正确的关闭
+																	Hibernate resource opened but not safely closed
+																	I/O resource opened but not safely closed
+																	JDBC resource opened but not safely closed
+																	JNDI resource opened but not safely closed
+																	Socket opened but not safely closed
+																	
+Serializable class without 'serialVersionUID'						Serializable class without 'serialVersionUID'				序列化对象没有序列化id
+
+Type parameter hides another type									Type parameter hides visible type							类A为T泛型，内部类也为T类型，会有警告
+Method does not override package visible method 					Method overrides inaccessible method of superclass			当包A中，类B有个方法 test()，是default的，在包内可见。包C中，类D继承B，有个相同的方法test()，此时会有警告，提醒该方法并没有继承自B。
+Interface method conflicts with protected 'Object' method 			Interface method clashes with method in 'java.lang.Object'	接口不允许含有和Object中的方法如hasCode，clone
+Deprecated API														Deprecated API usage										使用了被弃用的api方法
+Forbidden reference || Discouraged reference 																					eclipse的Exported Packages插件可以将某些类隐藏，导致别人引用会报错，当引用这个类时，eclipse会有错误提示，idea 没找到类似校验
+Value of local variable is not used									Unused declaration	选中Local variables						无使用的本地变量
+Unused import														Unused import												无使用的导入包
+Unused private member												Unused declaration,勾上Field,并选择private 					无使用的私有字段
+Unused 'break' or 'continue' label									Unnecessary 'break' statement | Unnecessary 'continue' statement	无使用的标签
+Unchecked generic type operation									Raw type can be generic  设成warning						List声明的时候没有加入泛型，new的时候却加入了（有待确认）
+Usage of a raw type 												Raw use of parameterized class								List声明的时候没有加入泛型，new的时候却加入了
+Generic type parameter declared with a final type bound 			Type parmaeter extends final class							泛型继承了final对象，如 ? extends String  (在eclipse并没有触发警告，待确认)
+Annotation is used as super interface								Class extends annotation interface							接口或者类继承了注解
+
+
+Unhandled token in '@SuppressWarnings'								Inspection suppression annotation 							'@SuppressWarnings'	注解中的值不合法
+																	在ignore suppressions添加不需要检查的字段即可以
+																	
+unused '@SuppressWarnings'	token																								未找到
+
+null pointer access													Constant conditions & exceptions							该校验会校验null pointer
+
+																	unchecked warning 											类型强转										
+	
